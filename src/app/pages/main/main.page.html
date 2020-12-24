@@ -1,0 +1,39 @@
+<ion-content>
+    <form (submit)="selectCategory()">
+        <section id="user_information">
+            <h2 class="title">
+                <span>{{ 'USER_INFORMATION.TITLE' | translate }}</span>
+                <ng-container *ngIf="selectCategoryErrors">
+                    <ion-icon class="success" name="checkmark-circle" *ngIf="selectCategoryErrors.length === 0"></ion-icon>
+                    <ion-icon class="error" name="close-circle" *ngIf="selectCategoryErrors.length > 0"></ion-icon>
+                </ng-container>
+            </h2>
+            <div class="inputs">
+                <ion-item lines="none">
+                    <ion-label position="stacked">Ονοματεπώνυμο</ion-label>
+                    <ion-input autocapitalize="words" autocomplete="name" #nameInput></ion-input>
+                </ion-item>
+
+                <ion-item lines="none">
+                    <ion-label position="stacked">Οδός</ion-label>
+                    <ion-input autocapitalize="words" autocomplete="street-address" #addressInput></ion-input>
+                </ion-item>
+            </div>
+        </section>
+        <section id="preferences">
+            <h2 class="title">{{ 'PREFERENCES.TITLE' | translate }}</h2>
+            <div class="actions">
+                <ion-button type="button" expand="block" color="medium" size="small" (click)="toggleDarkMode()">{{ 'PREFERENCES.DARK_MODE.' + (darkModeEnabled ? 'ENABLED' : 'DISABLED') | translate }}</ion-button>
+            </div>
+        </section>
+        <section id="select_category">
+            <h2 class="title">{{ 'SELECT_CATEGORY.TITLE' | translate }}</h2>
+            <div class="button">
+                <ion-button expand="block" [disabled]="selectCategoryErrors === undefined || selectCategoryErrors.length > 0" type="submit">{{ 'SELECT_CATEGORY.TITLE' | translate }}</ion-button>
+                <ul id="select_category_errors" *ngIf="selectCategoryErrors && selectCategoryErrors.length > 0">
+                    <li *ngFor="let error of selectCategoryErrors">{{ error.message }}</li>
+                </ul>
+            </div>
+        </section>
+    </form>
+</ion-content>

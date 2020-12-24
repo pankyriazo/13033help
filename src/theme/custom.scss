@@ -1,0 +1,14 @@
+@import 'fonts';
+
+html {
+    --ion-font-family: 'Open Sans', sans-serif;
+}
+
+ion-button {
+    height: 3rem;
+}
+
+ion-button.md,
+button.alert-button {
+    text-transform: none !important;
+}

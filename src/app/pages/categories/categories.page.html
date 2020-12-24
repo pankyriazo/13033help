@@ -1,0 +1,18 @@
+<ion-content>
+    <div id="top_actions">
+        <ion-button expand="block" [routerLink]="['/main']" replaceUrl>{{ 'CATEGORIES.TOP_ACTIONS.GO_TO_MAIN' | translate }}</ion-button>
+        <ion-button expand="block" [routerLink]="['/information']" color="medium" size="small">{{ 'CATEGORIES.TOP_ACTIONS.INFO' | translate }}</ion-button>
+    </div>
+    <h3 id="title">{{ 'CATEGORIES.TITLE' | translate }}</h3>
+    <div id="categories">
+        <ion-list>
+            <ion-item *ngFor="let category of categories" lines="none" class="ion-activatable" (click)="sendMessage(category.number)">
+                <div class="icon" [ngStyle]="{ 'background': category.bgColor }">
+                    <ion-icon [name]="category.icon" [ngStyle]="{ 'color': category.color }"></ion-icon>
+                </div>
+                <div class="title">{{ 'CATEGORIES.' + category.number + '.TITLE' | translate }}</div>
+                <ion-ripple-effect></ion-ripple-effect>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

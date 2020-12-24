@@ -1,0 +1,19 @@
+<ion-content>
+    <div id="top_actions">
+        <ion-button expand="block" (click)="goBack()">{{ 'INFORMATION.TOP_ACTIONS.BACK' | translate }}</ion-button>
+    </div>
+    <h3 id="title">{{ 'INFORMATION.TITLE' | translate }}</h3>
+    <div id="categories">
+        <ion-list>
+            <ion-item *ngFor="let category of categories" lines="none" class="ion-activatable">
+                <div class="icon" [ngStyle]="{ 'background': category.bgColor }">
+                    <ion-icon [name]="category.icon" [ngStyle]="{ 'color': category.color }"></ion-icon>
+                </div>
+                <div class="content">
+                    <div class="title">{{ category.number }}. {{ 'CATEGORIES.' + category.number + '.TITLE' | translate }}</div>
+                    <div class="description" [innerHtml]="'CATEGORIES.' + category.number + '.DESCRIPTION' | translate"></div>
+                </div>
+            </ion-item>
+        </ion-list>
+    </div>
+</ion-content>

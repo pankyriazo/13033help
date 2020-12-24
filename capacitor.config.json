@@ -1,0 +1,13 @@
+{
+    "appId": "io.github.pkyriazo",
+    "appName": "13033",
+    "bundledWebRuntime": false,
+    "npmClient": "npm",
+    "webDir": "www",
+    "plugins": {
+        "SplashScreen": {
+            "launchShowDuration": 0
+        }
+    },
+    "linuxAndroidStudioPath": "/home/panagiotis/.local/share/applications/android-studio/bin/studio.sh"
+}
